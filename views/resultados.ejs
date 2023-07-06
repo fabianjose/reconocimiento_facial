@@ -1,0 +1,36 @@
+<%- include('./partials/header') %>
+
+<div>
+  <a class="btn btn-danger" href="/logout">Salir</a>
+</div>
+
+<table class="table table-striped text-center" style="background-color: white;">
+  <thead class="table-dark">
+    <tr>
+      <th>User ID</th>
+      <th>Nombre</th>
+      <th>Promedio Sorprendido (%)</th>
+      <th>Promedio Neutral (%)</th>
+      <th>Promedio Feliz (%)</th>
+      <th>Promedio Triste (%)</th>
+      <th>Promedio Enojado (%)</th>
+      <th>Promedio Disgustado (%)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% resultados.forEach((registro) => { %>
+      <tr>
+        <td><%= registro.user_id %></td>
+        <td><%= registro.nombre %></td>
+        <td><%= (registro.promedioSorprendido * 100).toFixed(2) %></td>
+        <td><%= (registro.promedioNeutral * 100).toFixed(2) %></td>
+        <td><%= (registro.promedioFeliz * 100).toFixed(2) %></td>
+        <td><%= (registro.promedioTriste * 100).toFixed(2) %></td>
+        <td><%= (registro.promedioEnojado * 100).toFixed(2) %></td>
+        <td><%= (registro.promedioDisgustado * 100).toFixed(2) %></td>
+      </tr>
+    <% }); %>
+  </tbody>
+</table>
+
+<%- include('./partials/footer') %>
